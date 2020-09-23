@@ -38,9 +38,13 @@ export const thunks = {
   tryLogin,
 };
 
+const token = window.localStorage.getItem('REDUX_LECTURE_AUTH_TOKEN');
+
 const initialState = {
-  token: ""
-};
+    token,
+    email: "",
+    password: ""
+}
 
 function reducer(state = initialState, action) {
   switch (action.type) {

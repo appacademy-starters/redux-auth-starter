@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { actions, thunks } from './store/auth';
 
 const LoginForm = props =>
-  <>
+  <form>
     <div>
       <input onChange={props.updateEmailValue} type="email" placeholder="Email" required />
     </div>
@@ -13,7 +13,7 @@ const LoginForm = props =>
     <div>
       <button onClick={props.tryLogin}>Log in</button>
     </div>
-  </>
+  </form>
 ;
 
 const mapStateToProps = state => {
@@ -27,7 +27,10 @@ const mapDispatchToProps = dispatch => {
   return {
     updateEmailValue: event => dispatch(actions.updateEmailValue(event.target.value)),
     updatePasswordValue: event => dispatch(actions.updatePasswordValue(event.target.value)),
-    tryLogin: () => dispatch(thunks.tryLogin()),
+    tryLogin: (event)=>{
+      event.preventDefault();
+      dispatch(thunks.tryLogin());
+    }
   };
 };
 
