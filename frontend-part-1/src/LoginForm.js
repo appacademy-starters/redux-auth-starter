@@ -1,17 +1,17 @@
 import React from 'react';
 
 const LoginForm = props =>
-  <>
+  <form>
     <div>
-      <input onChange={props.updateEmailValue} type="email" placeholder="Email" required />
+      <input type="email" placeholder="Email" required />
     </div>
     <div>
-      <input onChange={props.updatePasswordValue} type="password" placeholder="Password" required />
+      <input type="password" placeholder="Password" required />
     </div>
     <div>
-      <button onClick={props.tryLogin}>Log in</button>
+      <button>Log in</button>
     </div>
-  </>
+  </form>
 ;
 
 export default LoginForm;
